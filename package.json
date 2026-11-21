@@ -1,0 +1,17 @@
+{
+  "name": "watchparty",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Watch YouTube in sync with a friend: one creator loads a video, everyone follows play/pause/seek with near-zero delay.",
+  "scripts": {
+    "start": "node server/relay.js",
+    "test": "node server/test-sync.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "ws": "^8.18.0"
+  },
+  "main": "server/relay.js"
+}

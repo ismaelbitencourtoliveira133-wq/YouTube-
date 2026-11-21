@@ -1,0 +1,21 @@
+# Render Blueprint for the Watch Party relay.
+#
+# Deploy in three steps:
+#   1. Push this repository to GitHub.
+#   2. In Render, "New" -> "Blueprint" -> pick this repo.
+#   3. Render reads this file and creates a free web service on port 8080.
+#
+# The app then points at wss://<service-name>.onrender.com
+services:
+  - type: web
+    name: watchparty-relay
+    runtime: node
+    plan: free
+    buildCommand: "npm install --omit=dev"
+    startCommand: "node server/relay.js"
+    healthCheckPath: "/"
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: PORT
+        value: "8080"
